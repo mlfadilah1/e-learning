@@ -42,10 +42,8 @@ class LoginController extends Controller
     public function authenticated(Request $request, $user){
         if($user -> role == 'Admin' ){
             return redirect('/home')->with('success','Login berhasil sebagai Admin.');
-        } else if($user -> role == 'Kasir' ){
-            return redirect('/home')->with('success','Login berhasil '. $user->name . '.');
-        }else if($user -> role == 'Customer' ){
-            return redirect('/dashboard')->with('success','Selamat Datang Di Sunda Coffe '. $user->name . '.');
+        } else if($user -> role == 'Customer' ){
+            return redirect('/')->with('success','Selamat Datang Di Sunda Coffe '. $user->name . '.');
         }
         
         // else if($user -> level == 2 && $user->status == "Tidak Aktif"){
