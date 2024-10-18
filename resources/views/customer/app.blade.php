@@ -24,6 +24,7 @@ http://www.templatemo.com/tm-516-known
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="landing/css/templatemo-style.css">
+    <link rel="stylesheet" href="landing/css/bootstrap.min.css" >
 
 </head>
 
@@ -65,9 +66,30 @@ http://www.templatemo.com/tm-516-known
                     <li class=""><a href="#contact" class="smoothScroll">Contact</a></li>
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login"><i class="fa fa-phone"></i> Login/Register</a></li>
-                </ul>
+                @guest
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="login"><i class="fa fa-user"></i> Login/Register</a></li>
+                    </ul>
+                @endguest
+
+                @auth
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <div class="d-sm-none d-lg-inline-block"></div>{{ Auth::user()->name }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end bg-light">
+                              {{-- <a href="profile" class="dropdown-item has-icon">
+                                <i class="far fa-user"></i><span>Profile</span>
+                              </a> --}}
+                              <a href="{{ url('logout', []) }}" class="dropdown-item has-icon text-danger">
+                                   <i class="fas fa-sign-out-alt"></i> Logout
+                              </a>
+                            </div>
+                        </li>
+                    </ul>
+                @endauth
             </div>
 
         </div>
@@ -78,57 +100,11 @@ http://www.templatemo.com/tm-516-known
     <section id="home">
         <div class="row">
 
-          <div class="owl-carousel owl-theme home-slider owl-loaded owl-drag">
-               <div class="owl-stage-outer">
+            <div class="owl-carousel owl-theme home-slider owl-loaded owl-drag">
+                <div class="owl-stage-outer">
                     <div class="owl-stage"
-                         style="transform: translate3d(-2268px, 0px, 0px); transition: all; width: 5292px;">
-                         <div class="owl-item cloned" style="width: 756px;">
-                              <div class="item item-second">
-                                   <div class="caption">
-                                        <div class="container">
-                                             <div class="col-md-6 col-sm-12">
-                                                  <h1>Start your journey with our practical courses</h1>
-                                                  <h3>Our online courses are built in partnership with technology leaders and are designed to meet industry demands.</h3>
-                                                  <a href="#courses" class="section-btn btn btn-default smoothScroll">Take a
-                                                  course</a>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="owl-item cloned" style="width: 756px;">
-                            <div class="item item-third">
-                                <div class="caption">
-                                    <div class="container">
-                                        <div class="col-md-6 col-sm-12">
-                                            <h1>Efficient Learning Methods</h1>
-                                            <h3>Nam eget sapien vel nibh euismod vulputate in vel nibh. Quisque eu ex eu
-                                                urna venenatis sollicitudin ut at libero. Visit <a
-                                                    href="https://plus.google.com/+templatemo"
-                                                    target="_parent">templatemo</a> page.</h3>
-                                            <a href="#contact" class="section-btn btn btn-default smoothScroll">Let's
-                                                chat</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="owl-item" style="width: 756px;">
-                            <div class="item item-first">
-                                <div class="caption">
-                                    <div class="container">
-                                        <div class="col-md-6 col-sm-12">
-                                            <h1>Distance Learning Education Center</h1>
-                                            <h3>Our online courses are designed to fit in your industry supporting
-                                                all-round with latest technologies.</h3>
-                                            <a href="#feature" class="section-btn btn btn-default smoothScroll">Discover
-                                                more</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                         </div>
-                         <div class="owl-item active" style="width: 756px;">
+                        style="transform: translate3d(-2268px, 0px, 0px); transition: all; width: 5292px;">
+                        <div class="owl-item cloned" style="width: 756px;">
                             <div class="item item-second">
                                 <div class="caption">
                                     <div class="container">
@@ -142,8 +118,8 @@ http://www.templatemo.com/tm-516-known
                                     </div>
                                 </div>
                             </div>
-                         </div>
-                         <div class="owl-item" style="width: 756px;">
+                        </div>
+                        <div class="owl-item cloned" style="width: 756px;">
                             <div class="item item-third">
                                 <div class="caption">
                                     <div class="container">
@@ -159,8 +135,56 @@ http://www.templatemo.com/tm-516-known
                                     </div>
                                 </div>
                             </div>
-                         </div>
-                         <div class="owl-item cloned" style="width: 756px;">
+                        </div>
+                        <div class="owl-item" style="width: 756px;">
+                            <div class="item item-first">
+                                <div class="caption">
+                                    <div class="container">
+                                        <div class="col-md-6 col-sm-12">
+                                            <h1>Distance Learning Education Center</h1>
+                                            <h3>Our online courses are designed to fit in your industry supporting
+                                                all-round with latest technologies.</h3>
+                                            <a href="#feature"
+                                                class="section-btn btn btn-default smoothScroll">Discover
+                                                more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item active" style="width: 756px;">
+                            <div class="item item-second">
+                                <div class="caption">
+                                    <div class="container">
+                                        <div class="col-md-6 col-sm-12">
+                                            <h1>Start your journey with our practical courses</h1>
+                                            <h3>Our online courses are built in partnership with technology leaders and
+                                                are designed to meet industry demands.</h3>
+                                            <a href="#courses" class="section-btn btn btn-default smoothScroll">Take a
+                                                course</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item" style="width: 756px;">
+                            <div class="item item-third">
+                                <div class="caption">
+                                    <div class="container">
+                                        <div class="col-md-6 col-sm-12">
+                                            <h1>Efficient Learning Methods</h1>
+                                            <h3>Nam eget sapien vel nibh euismod vulputate in vel nibh. Quisque eu ex eu
+                                                urna venenatis sollicitudin ut at libero. Visit <a
+                                                    href="https://plus.google.com/+templatemo"
+                                                    target="_parent">templatemo</a> page.</h3>
+                                            <a href="#contact" class="section-btn btn btn-default smoothScroll">Let's
+                                                chat</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-item cloned" style="width: 756px;">
                             <div class="item item-first">
                                 <div class="caption">
                                     <div class="container">
@@ -174,8 +198,8 @@ http://www.templatemo.com/tm-516-known
                                     </div>
                                 </div>
                             </div>
-                         </div>
-                         <div class="owl-item cloned" style="width: 756px;">
+                        </div>
+                        <div class="owl-item cloned" style="width: 756px;">
                             <div class="item item-second">
                                 <div class="caption">
                                     <div class="container">
@@ -189,10 +213,10 @@ http://www.templatemo.com/tm-516-known
                                     </div>
                                 </div>
                             </div>
-                         </div>
+                        </div>
                     </div>
-               </div>
-               {{-- <div class="owl-nav disabled">
+                </div>
+                {{-- <div class="owl-nav disabled">
                     <div class="owl-prev">prev</div>
                     <div class="owl-next">next</div>
                 </div>
@@ -1132,6 +1156,7 @@ http://www.templatemo.com/tm-516-known
     <script src="landing/js/owl.carousel.min.js"></script>
     <script src="landing/js/smoothscroll.js"></script>
     <script src="landing/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
