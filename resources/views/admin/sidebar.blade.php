@@ -34,7 +34,7 @@
                             <span>
                                 <i class="ti ti-file-description"></i>
                             </span>
-                            <span class="hide-menu">Laporan Reservasi</span>
+                            <span class="hide-menu">Course</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
@@ -42,7 +42,7 @@
                             <span>
                                 <i class="ti ti-file-description"></i>
                             </span>
-                            <span class="hide-menu">Laporan Harian</span>
+                            <span class="hide-menu">Data User</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
@@ -50,17 +50,17 @@
                             <span>
                                 <i class="ti ti-cards"></i>
                             </span>
-                            <span class="hide-menu">Transaksi</span>
+                            <span class="hide-menu">Payment</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    {{-- <li class="sidebar-item">
                         <a class="sidebar-link" href="meja" aria-expanded="false">
                             <span>
                                 <i class="ti ti-file-description"></i>
                             </span>
                             <span class="hide-menu">Data Meja</span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="rating" aria-expanded="false">
                             <span>
