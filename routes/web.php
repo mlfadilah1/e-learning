@@ -27,9 +27,13 @@ Route::get('/logout', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-Route::middleware(['auth','Admin', 'Kasir'])->group(function(){
-    //menu
+Route::middleware(['auth','Admin'])->group(function(){
+    //tampilan awal atau index
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'admin'])->name('dashboard');
+    Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
+    Route::get('/payment', [App\Http\Controllers\PaymentController::class, 'index'])->name('payment');
+    Route::get('/rating', [App\Http\Controllers\RatingController::class, 'index'])->name('rating');
+    Route::get('/course', [App\Http\Controllers\CourseController::class, 'index'])->name('course');
 
 });
 
