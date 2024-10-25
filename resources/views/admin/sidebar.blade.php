@@ -30,7 +30,7 @@
                         <span class="hide-menu">FITUR</span>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="laporanreservasi" aria-expanded="false">
+                        <a class="sidebar-link" href="course" aria-expanded="false">
                             <span>
                                 <i class="ti ti-file-description"></i>
                             </span>
@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="laporanharian" aria-expanded="false">
+                        <a class="sidebar-link" href="user" aria-expanded="false">
                             <span>
                                 <i class="ti ti-file-description"></i>
                             </span>
@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link" href="transaksi" aria-expanded="false">
+                        <a class="sidebar-link" href="payment" aria-expanded="false">
                             <span>
                                 <i class="ti ti-cards"></i>
                             </span>
