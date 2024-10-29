@@ -773,7 +773,7 @@ http://www.templatemo.com/tm-516-known
   }
 
   .footer-info h2 {
-    color: #ffffff;
+    color: #000;
     padding: 0;
   }
 
@@ -804,7 +804,7 @@ http://www.templatemo.com/tm-516-known
 
   .newsletter-form input[type="submit"] {
     background: transparent;
-    border: 1px solid #f9f9f9;
+    border: 1px solid #000;
     border-radius: 50px;
     color: #ffffff;
     display: block;
@@ -845,7 +845,7 @@ http://www.templatemo.com/tm-516-known
 
   .social-icon li a {
     border-radius: 100px;
-    color: #000;
+    color: #ffff;
     font-size: 15px;
     width: 35px;
     height: 35px;
@@ -858,7 +858,7 @@ http://www.templatemo.com/tm-516-known
   }
 
   .social-icon li a:hover {
-    background: #b5e51e;
+    background: #000;
     color: #ffffff;
   }
 
@@ -939,7 +939,7 @@ http://www.templatemo.com/tm-516-known
 
     .custom-navbar .nav li a,
     .top-nav-collapse .nav li a {
-      color: #000;
+      color: #575757;
     }
 
     .custom-navbar .navbar-nav.navbar-right li {
