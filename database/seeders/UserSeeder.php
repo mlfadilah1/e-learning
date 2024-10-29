@@ -16,8 +16,9 @@ class UserSeeder extends Seeder
         ([
             $user = new User,
             $user -> name = "Admin",
+            $user -> username = "Admin",
             $user -> email = "admin@gmail.com",
-            $user -> role = "Admin",
+            $user -> role = "1",
             $user -> password = bcrypt('1'),
             // $user -> foto = "",
             // $user -> no_hp = '0895923847629',
@@ -26,8 +27,9 @@ class UserSeeder extends Seeder
         ([
             $user = new User(),
             $user -> name = "Customer",
+            $user -> username = "Customer",
             $user -> email = "customer@gmail.com",
-            $user -> role = 'Customer',
+            $user -> role = '2',
             $user -> password = bcrypt('2'),
             // $user -> foto = "",
             // $user -> no_hp = '089611029347',
