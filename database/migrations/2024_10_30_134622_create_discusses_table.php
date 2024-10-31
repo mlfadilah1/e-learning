@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cupons', function (Blueprint $table) {
+        Schema::create('discusses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('enrollment_id');  // Relasi ke tabel 'enrollments'
-            $table->string('cupon_code',250);  // Menggunakan tipe string untuk kode kupon
+            $table->foreignId('user_id');
+            $table->foreignId('course_id');
+            $table->text('content');
             $table->timestamps();
         });
-        
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cupons');
+        Schema::dropIfExists('discusses');
     }
 };

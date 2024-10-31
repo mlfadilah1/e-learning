@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('course_contents', function (Blueprint $table) {
             $table->id();
             // Mendefinisikan foreign key yang merujuk ke 'course_categories'
-            $table->foreignId('course_category_id')->constrained('course_categories')->onDelete('cascade');
-            $table->string('title');
-            $table->text('description');
-            $table->string('url');
-            $table->string('content_type');
-            $table->boolean('status');
+            $table->foreignId('course_category_id');
+            $table->foreignId('section_id');
+            $table->string('title',250);
+            // $table->text('description');
+            $table->string('url',250);
+            $table->decimal('duration');
+            // $table->boolean('status');
             $table->timestamps();
         });
         
