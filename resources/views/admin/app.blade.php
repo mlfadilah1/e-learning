@@ -75,10 +75,10 @@
     </script>
     
     {{-- sweetalert --}}
-    {{-- @yield('js')
+    @yield('js')
     
     @include('sweetalert::alert')
-    @stack('myscript') --}}
+    @stack('myscript')
 </body>
 
 </html>

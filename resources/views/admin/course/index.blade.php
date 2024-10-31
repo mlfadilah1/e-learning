@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title fw-semibold mb-4">Course</h5>
-            <a href="{{ url('tambahmeja') }}" class="ti ti-plus">Tambah Course</a>
+            <a href="{{ url('tambahcourse') }}" class="ti ti-plus">Tambah Course</a>
             <div class="card">
                 <div class="card-body p-4">
                     <div class="table-responsive">

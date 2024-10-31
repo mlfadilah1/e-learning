@@ -53,14 +53,14 @@
                             <span class="hide-menu">Payment</span>
                         </a>
                     </li>
-                    {{-- <li class="sidebar-item">
-                        <a class="sidebar-link" href="meja" aria-expanded="false">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="instructor" aria-expanded="false">
                             <span>
                                 <i class="ti ti-file-description"></i>
                             </span>
-                            <span class="hide-menu">Data Meja</span>
+                            <span class="hide-menu">Data instructor</span>
                         </a>
-                    </li> --}}
+                    </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link" href="rating" aria-expanded="false">
                             <span>

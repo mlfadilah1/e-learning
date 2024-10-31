@@ -1,170 +1,70 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-     <title>E-Learning - IdeaThings</title>
-     
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-     <meta name="description" content="">
-     <meta name="keywords" content="">
-     <meta name="author" content="">
-     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-     <link rel="stylesheet" href="landing/css/bootstrap.min.css">
-     <link rel="stylesheet" href="landing/css/font-awesome.min.css">
-     <link rel="stylesheet" href="landing/css/owl.carousel.css">
-     <link rel="stylesheet" href="landing/css/owl.theme.default.min.css">
+    <title>IdeaThings - E-Learning</title>
+    <!--
 
-     <!-- MAIN CSS -->
-     <link rel="stylesheet" href="landing/css/templatemo-style.css">
-     <link rel="stylesheet" href="landing/css/bootstrap.min.css">
-     <link rel="shortcut icon" type="image/png" href="admin/images/logos/IdeaThings.png" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-     <style>
-          .horizontal-carousel {
-              position: relative;
-              display: flex;
-              align-items: center;
-              overflow: hidden;
-          }
-      
-          .testimonial-list {
-              display: flex;
-              gap: 20px; /* Jarak antara item */
-              overflow-x: auto;
-              scroll-behavior: smooth;
-          }
-      
-          .testimonial-item {
-              min-width: 300px; /* Sesuaikan dengan lebar yang diinginkan */
-              background-color: #f9f9f9;
-              padding: 20px;
-              border-radius: 5px;
-          }
-      
-          .tst-image {
-              text-align: center;
-              margin-bottom: 15px;
-          }
-      
-          .tst-image img {
-              border-radius: 50%;
-          }
-      
-          .tst-author {
-              text-align: center;
-              margin-bottom: 10px;
-          }
-      
-          .tst-rating {
-              text-align: center;
-              margin-top: 10px;
-          }
-      
-          .carousel-btn {
-              background-color: #f1f1f1;
-              border: none;
-              padding: 10px;
-              cursor: pointer;
-          }
-      
-          .carousel-btn:hover {
-              background-color: #ddd;
-          }
-      
-          .left-btn {
-              position: absolute;
-              left: 0;
-              z-index: 1;
-          }
-      
-          .right-btn {
-              position: absolute;
-              right: 0;
-              z-index: 1;
-          }
-      </style>
+Known Template
+
+http://www.templatemo.com/tm-516-known
+
+-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="landing/css/bootstrap.min.css">
+    <link rel="stylesheet" href="landing/css/font-awesome.min.css">
+    <link rel="stylesheet" href="landing/css/owl.carousel.css">
+    <link rel="stylesheet" href="landing/css/owl.theme.default.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="landing/css/templatemo-style.css">
 
 </head>
 
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
-     <!-- PRE LOADER -->
-     <section class="preloader" style="display: none;">
-          <div class="spinner">
+    <!-- PRE LOADER -->
+    <section class="preloader">
+        <div class="spinner">
 
-               <span class="spinner-rotate"></span>
+            <span class="spinner-rotate"></span>
 
-          </div>
-     </section>
+        </div>
+    </section>
 
 
-     <!-- MENU -->
-     @include('customer.navbar')
+    <!-- MENU -->
+    @include('customer.navbar')
 
 
     <!-- HOME -->
     <section id="home">
-        <div class="container">
-            <div class="row">
-                <div class="owl-carousel owl-theme home-slider">
-                    <!-- Full width and height item -->
-                    <div class="item" style="height: 100vh;"> <!-- Set height -->
-                        <div class="courses-thumb">
-                            <div class="courses-top">
-                                <div class="courses-image">
-                                    <img src="landing/images/slider-image2.jpg" class="img-responsive" alt="home slider image" style="width: 100%; height: 100%; object-fit: cover;"> <!-- Change the source to your image -->
-                                </div>
-                                <div class="courses-date">
-                                    <div class="col-md-6 col-sm-12">
-                                        <h1>Distance Learning Education Center</h1>
-                                        <h3>Our online courses are designed to fit your industry, supporting
-                                            all-round development with the latest technologies.</h3>
-                                        <a href="#courses" class="btn btn-success mt-4">Discover More</a>
-                                    </div>
-                                </div>
+        <div class="row">
+            <div class="owl-carousel owl-theme home-slider">
+                <div class="item item-first">
+                    <div class="caption">
+                        <div class="container">
+                            <div class="col-md-6 col-sm-12">
+                                <h1>Distance Learning Education Center</h1>
+                                <h3>Our online courses are designed to fit in your industry supporting
+                                    all-round with latest technologies.</h3>
+                                <a href="#courses" class="btn btn-success mt-4">Take a
+                                    Discover More</a>
                             </div>
                         </div>
                     </div>
-                    <div class="item" style="height: 100vh;"> <!-- Set height -->
-                        <div class="courses-thumb">
-                            <div class="courses-top">
-                                <div class="courses-image">
-                                    <img src="landing/images/slider-image3.jpg" class="img-responsive" alt="home slider image" style="width: 100%; height: 100%; object-fit: cover;"> <!-- Change the source to your image -->
-                                </div>
-                                <div class="courses-date">
-                                    <div class="col-md-6 col-sm-12">
-                                        <h1>Distance Learning Education Center</h1>
-                                        <h3>Our online courses are designed to fit your industry, supporting
-                                            all-round development with the latest technologies.</h3>
-                                        <a href="#courses" class="btn btn-success mt-4">Discover More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item" style="height: 100vh;"> <!-- Set height -->
-                        <div class="courses-thumb">
-                            <div class="courses-top">
-                                <div class="courses-image">
-                                    <img src="landing/images/slider-image1.jpg" class="img-responsive" alt="home slider image" style="width: 100%; height: 100%; object-fit: cover;"> <!-- Change the source to your image -->
-                                </div>
-                                <div class="courses-date">
-                                    <div class="col-md-6 col-sm-12">
-                                        <h1>Distance Learning Education Center</h1>
-                                        <h3>Our online courses are designed to fit your industry, supporting
-                                            all-round development with the latest technologies.</h3>
-                                        <a href="#courses" class="btn btn-success mt-4">Discover More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Add more items as needed -->
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- FEATURE -->
     <section id="feature">
@@ -174,7 +74,7 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="feature-thumb">
                         <span>01</span>
-                        <h3>Online Courses</h3>
+                        <h3>Trending Courses</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore et
                             dolore magna.</p>
                     </div>
@@ -183,8 +83,7 @@
                 <div class="col-md-4 col-sm-4">
                     <div class="feature-thumb">
                         <span>02</span>
-                        <img src="" alt="">
-                        <h3>Offline Courses</h3>
+                        <h3>Books & Library</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing eiusmod tempor incididunt ut labore et
                             dolore magna.</p>
                     </div>
@@ -206,43 +105,60 @@
 
     <!-- ABOUT -->
     <section id="about">
-     <div class="container">
-         <div class="row text-center mb-5">
-             <h2>Start your journey to a better life with online practical courses</h2>
-         </div>
-         <div class="row">
-             <div class="col-md-4 col-sm-12">
-                 <div class="card">
-                     <div class="feature-thumb">
-                         <h3>100++ Courses</h3>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                     </div>
-                 </div>
-             </div>
- 
-             <div class="col-md-4 col-sm-12">
-                 <div class="card active-card">
-                     <div class="feature-thumb">
-                         <h3>100++ Courses</h3>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                     </div>
-                 </div>
-             </div>
- 
-             <div class="col-md-4 col-sm-12">
-                 <div class="card">
-                     <div class="feature-thumb">
-                         <h3>100++ Courses</h3>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
-     <div class="row text-center">
-          <button class="btn btn-success mt-4">Discover More</button>
-      </div>
- </section>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-6 col-sm-12">
+                    <div class="about-info">
+                        <h2>Start your journey to a better life with online practical courses</h2>
+
+                        <figure>
+                            <span><i class="fa fa-users"></i></span>
+                            <figcaption>
+                                <h3>Professional Trainers</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
+                            </figcaption>
+                        </figure>
+
+                        <figure>
+                            <span><i class="fa fa-certificate"></i></span>
+                            <figcaption>
+                                <h3>International Certifications</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
+                            </figcaption>
+                        </figure>
+
+                        <figure>
+                            <span><i class="fa fa-bar-chart-o"></i></span>
+                            <figcaption>
+                                <h3>Free for 3 months</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa voluptatibus.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="col-md-offset-1 col-md-4 col-sm-12">
+                    <div class="entry-form">
+                        <form action="#" method="post">
+                            <h2>Signup today</h2>
+                            <input type="text" name="full name" class="form-control" placeholder="Full name"
+                                required="">
+
+                            <input type="email" name="email" class="form-control" placeholder="Your email address"
+                                required="">
+
+                            <input type="password" name="password" class="form-control" placeholder="Your password"
+                                required="">
+
+                            <button class="submit-btn form-control" id="form-submit">Get started</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
 
     <!-- TEAM -->
@@ -329,208 +245,284 @@
 
 
     <!-- Courses -->
-     <section id="courses">
-          <div class="container">
-               <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                         <div class="section-title">
-                              <h2>Popular Courses <small>Upgrade your skills with newest courses</small></h2>
-                         </div>
-                         <!-- Owl Carousel Slider -->
-                         <div class="owl-carousel owl-theme">
-                              <!-- Course Item 1 -->
-                              <div class="item">
-                                   <div class="courses-thumb">
-                                   <div class="courses-top">
-                                        <div class="courses-image">
-                                             <img src="landing/images/courses-image1.jpg" class="img-responsive" alt="course image">
-                                        </div>
-                                        <div class="courses-date">
-                                             <span><i class="fa fa-calendar"></i> 12 / 7 / 2018</span>
-                                             <span><i class="fa fa-clock-o"></i> 7 Hours</span>
-                                        </div>
-                                   </div>
-                                   <div class="courses-detail">
-                                        <h3><a href="#">Social Media Management</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                   </div>
-                                   <div class="courses-info">
-                                        <div class="courses-author">
-                                             <img src="landing/images/author-image1.jpg" class="img-responsive" alt="author">
-                                             <span>Mark Wilson</span>
-                                        </div>
-                                        <div class="courses-price">
-                                             <a href="#"><span>USD 25</span></a>
-                                        </div>
-                                   </div>
-                                   </div>
-                              </div>
-                              <!-- Course Item 2 -->
-                              <div class="item">
-                                   <div class="courses-thumb">
-                                   <div class="courses-top">
-                                        <div class="courses-image">
-                                             <img src="landing/images/courses-image2.jpg" class="img-responsive" alt="course image">
-                                        </div>
-                                        <div class="courses-date">
-                                             <span><i class="fa fa-calendar"></i> 20 / 7 / 2018</span>
-                                             <span><i class="fa fa-clock-o"></i> 4.5 Hours</span>
-                                        </div>
-                                   </div>
-                                   <div class="courses-detail">
-                                        <h3><a href="#">Graphic & Web Design</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                   </div>
-                                   <div class="courses-info">
-                                        <div class="courses-author">
-                                             <img src="landing/images/author-image2.jpg" class="img-responsive" alt="author">
-                                             <span>Jessica</span>
-                                        </div>
-                                        <div class="courses-price">
-                                             <a href="#"><span>USD 80</span></a>
-                                        </div>
-                                   </div>
-                                   </div>
-                              </div>
-                              <div class="item">
-                                   <div class="courses-thumb">
-                                   <div class="courses-top">
-                                        <div class="courses-image">
-                                             <img src="landing/images/courses-image1.jpg" class="img-responsive" alt="course image">
-                                        </div>
-                                        <div class="courses-date">
-                                             <span><i class="fa fa-calendar"></i> 12 / 7 / 2018</span>
-                                             <span><i class="fa fa-clock-o"></i> 7 Hours</span>
-                                        </div>
-                                   </div>
-                                   <div class="courses-detail">
-                                        <h3><a href="#">Social Media Management</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                   </div>
-                                   <div class="courses-info">
-                                        <div class="courses-author">
-                                             <img src="landing/images/author-image1.jpg" class="img-responsive" alt="author">
-                                             <span>Mark Wilson</span>
-                                        </div>
-                                        <div class="courses-price">
-                                             <a href="#"><span>USD 25</span></a>
-                                        </div>
-                                   </div>
-                                   </div>
-                              </div>
-                              <!-- Course Item 2 -->
-                              <div class="item">
-                                   <div class="courses-thumb">
-                                   <div class="courses-top">
-                                        <div class="courses-image">
-                                             <img src="landing/images/courses-image2.jpg" class="img-responsive" alt="course image">
-                                        </div>
-                                        <div class="courses-date">
-                                             <span><i class="fa fa-calendar"></i> 20 / 7 / 2018</span>
-                                             <span><i class="fa fa-clock-o"></i> 4.5 Hours</span>
-                                        </div>
-                                   </div>
-                                   <div class="courses-detail">
-                                        <h3><a href="#">Graphic & Web Design</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                   </div>
-                                   <div class="courses-info">
-                                        <div class="courses-author">
-                                             <img src="landing/images/author-image2.jpg" class="img-responsive" alt="author">
-                                             <span>Jessica</span>
-                                        </div>
-                                        <div class="courses-price">
-                                             <a href="#"><span>USD 80</span></a>
-                                        </div>
-                                   </div>
-                                   </div>
-                              </div>
-                              <!-- Add more items as needed -->
-                         </div>
+    <section id="courses">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+                    <div class="section-title">
+                        <h2>Popular Courses <small>Upgrade your skills with newest courses</small></h2>
                     </div>
-               </div>
-          </div>
-     </section>
+
+                    <div class="owl-carousel owl-theme owl-courses">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="item">
+                                <div class="courses-thumb">
+                                    <div class="courses-top">
+                                        <div class="courses-image">
+                                            <img src="landing/images/courses-image1.jpg" class="img-responsive"
+                                                alt="">
+                                        </div>
+                                        <div class="courses-date">
+                                            <span><i class="fa fa-calendar"></i> 12 / 7 / 2018</span>
+                                            <span><i class="fa fa-clock-o"></i> 7 Hours</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="courses-detail">
+                                        <h3><a href="#">Social Media Management</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    </div>
+
+                                    <div class="courses-info">
+                                        <div class="courses-author">
+                                            <img src="landing/images/author-image1.jpg" class="img-responsive"
+                                                alt="">
+                                            <span>Mark Wilson</span>
+                                        </div>
+                                        <div class="courses-price">
+                                            <a href="#"><span>USD 25</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="item">
+                                <div class="courses-thumb">
+                                    <div class="courses-top">
+                                        <div class="courses-image">
+                                            <img src="landing/images/courses-image2.jpg" class="img-responsive"
+                                                alt="">
+                                        </div>
+                                        <div class="courses-date">
+                                            <span><i class="fa fa-calendar"></i> 20 / 7 / 2018</span>
+                                            <span><i class="fa fa-clock-o"></i> 4.5 Hours</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="courses-detail">
+                                        <h3><a href="#">Graphic & Web Design</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    </div>
+
+                                    <div class="courses-info">
+                                        <div class="courses-author">
+                                            <img src="landing/images/author-image2.jpg" class="img-responsive"
+                                                alt="">
+                                            <span>Jessica</span>
+                                        </div>
+                                        <div class="courses-price">
+                                            <a href="#"><span>USD 80</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="item">
+                                <div class="courses-thumb">
+                                    <div class="courses-top">
+                                        <div class="courses-image">
+                                            <img src="landing/images/courses-image3.jpg" class="img-responsive"
+                                                alt="">
+                                        </div>
+                                        <div class="courses-date">
+                                            <span><i class="fa fa-calendar"></i> 15 / 8 / 2018</span>
+                                            <span><i class="fa fa-clock-o"></i> 6 Hours</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="courses-detail">
+                                        <h3><a href="#">Marketing Communication</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    </div>
+
+                                    <div class="courses-info">
+                                        <div class="courses-author">
+                                            <img src="landing/images/author-image3.jpg" class="img-responsive"
+                                                alt="">
+                                            <span>Catherine</span>
+                                        </div>
+                                        <div class="courses-price free">
+                                            <a href="#"><span>Free</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="item">
+                                <div class="courses-thumb">
+                                    <div class="courses-top">
+                                        <div class="courses-image">
+                                            <img src="landing/images/courses-image4.jpg" class="img-responsive"
+                                                alt="">
+                                        </div>
+                                        <div class="courses-date">
+                                            <span><i class="fa fa-calendar"></i> 10 / 8 / 2018</span>
+                                            <span><i class="fa fa-clock-o"></i> 8 Hours</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="courses-detail">
+                                        <h3><a href="#">Summer Kids</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    </div>
+
+                                    <div class="courses-info">
+                                        <div class="courses-author">
+                                            <img src="landing/images/author-image1.jpg" class="img-responsive"
+                                                alt="">
+                                            <span>Mark Wilson</span>
+                                        </div>
+                                        <div class="courses-price">
+                                            <a href="#"><span>USD 45</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="item">
+                                <div class="courses-thumb">
+                                    <div class="courses-top">
+                                        <div class="courses-image">
+                                            <img src="landing/images/courses-image5.jpg" class="img-responsive"
+                                                alt="">
+                                        </div>
+                                        <div class="courses-date">
+                                            <span><i class="fa fa-calendar"></i> 5 / 10 / 2018</span>
+                                            <span><i class="fa fa-clock-o"></i> 10 Hours</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="courses-detail">
+                                        <h3><a href="#">Business &amp; Management</a></h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    </div>
+
+                                    <div class="courses-info">
+                                        <div class="courses-author">
+                                            <img src="landing/images/author-image2.jpg" class="img-responsive"
+                                                alt="">
+                                            <span>Jessica</span>
+                                        </div>
+                                        <div class="courses-price free">
+                                            <a href="#"><span>Free</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+    </section>
 
 
     <!-- TESTIMONIAL -->
     <section id="testimonial">
-     <div class="container">
-         <div class="row">
-             <div class="col-md-12 col-sm-12">
-                 <div class="section-title">
-                     <h2>Student Reviews <small>from around the world</small></h2>
-                 </div>
- 
-                 <!-- Horizontal Testimonial Carousel -->
-                 <div class="horizontal-carousel">
-                     <button id="scrollLeftTestimonial" class="carousel-btn left-btn"><i class="fa fa-angle-left"></i></button>
-                     
-                     <div class="testimonial-list">
-                         <!-- Testimonial Item 1 -->
-                         <div class="testimonial-item">
-                             <div class="tst-image">
-                                 <img src="landing/images/tst-image1.jpg" class="img-responsive" alt="Jackson">
-                             </div>
-                             <div class="tst-author">
-                                 <h4>Jackson</h4>
-                                 <span>Shopify Developer</span>
-                             </div>
-                             <p>You really do help young creative minds to get quality education and professional job search assistance. I’d recommend it to everyone!</p>
-                             <div class="tst-rating">
-                                 <i class="fa fa-star"></i>
-                                 <i class="fa fa-star"></i>
-                                 <i class="fa fa-star"></i>
-                                 <i class="fa fa-star"></i>
-                                 <i class="fa fa-star"></i>
-                             </div>
-                         </div>
- 
-                         <!-- Testimonial Item 2 -->
-                         <div class="testimonial-item">
-                             <div class="tst-image">
-                                 <img src="landing/images/tst-image3.jpg" class="img-responsive" alt="Barbie">
-                             </div>
-                             <div class="tst-author">
-                                 <h4>Barbie</h4>
-                                 <span>Art Director</span>
-                             </div>
-                             <p>Donec erat libero, blandit vitae arcu eu, lacinia placerat justo. Sed sollicitudin quis felis vitae hendrerit.</p>
-                             <div class="tst-rating">
-                                 <i class="fa fa-star"></i>
-                                 <i class="fa fa-star"></i>
-                                 <i class="fa fa-star"></i>
-                                 <i class="fa fa-star"></i>
-                             </div>
-                         </div>
- 
-                         <!-- Testimonial Item 3 -->
-                         <div class="testimonial-item">
-                             <div class="tst-image">
-                                 <img src="landing/images/tst-image4.jpg" class="img-responsive" alt="Andrio">
-                             </div>
-                             <div class="tst-author">
-                                 <h4>Andrio</h4>
-                                 <span>Web Developer</span>
-                             </div>
-                             <p>Nam eget mi eu ante faucibus viverra nec sed magna. Vivamus viverra sapien ex, elementum varius ex sagittis vel.</p>
-                             <div class="tst-rating">
-                                 <i class="fa fa-star"></i>
-                                 <i class="fa fa-star"></i>
-                                 <i class="fa fa-star"></i>
-                                 <i class="fa fa-star"></i>
-                             </div>
-                         </div>
- 
-                         <!-- Tambahkan testimoni lainnya sesuai kebutuhan -->
-                     </div>
- 
-                     <button id="scrollRightTestimonial" class="carousel-btn right-btn"><i class="fa fa-angle-right"></i></button>
-                 </div>
-             </div>
-         </div>
-     </div>
- </section>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12 col-sm-12">
+                    <div class="section-title">
+                        <h2>Student Reviews <small>from around the world</small></h2>
+                    </div>
+
+                    <div class="owl-carousel owl-theme owl-client">
+                        <div class="col-md-4 col-sm-4">
+                            <div class="item">
+                                <div class="tst-image">
+                                    <img src="landing/images/tst-image1.jpg" class="img-responsive" alt="">
+                                </div>
+                                <div class="tst-author">
+                                    <h4>Jackson</h4>
+                                    <span>Shopify Developer</span>
+                                </div>
+                                <p>You really do help young creative minds to get quality education and professional job
+                                    search assistance. I’d recommend it to everyone!</p>
+                                <div class="tst-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="item">
+                                <div class="tst-image">
+                                    <img src="landing/images/tst-image2.jpg" class="img-responsive" alt="">
+                                </div>
+                                <div class="tst-author">
+                                    <h4>Camila</h4>
+                                    <span>Marketing Manager</span>
+                                </div>
+                                <p>Trying something new is exciting! Thanks for the amazing law course and the great
+                                    teacher who was able to make it interesting.</p>
+                                <div class="tst-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="item">
+                                <div class="tst-image">
+                                    <img src="landing/images/tst-image3.jpg" class="img-responsive" alt="">
+                                </div>
+                                <div class="tst-author">
+                                    <h4>Barbie</h4>
+                                    <span>Art Director</span>
+                                </div>
+                                <p>Donec erat libero, blandit vitae arcu eu, lacinia placerat justo. Sed sollicitudin
+                                    quis felis vitae hendrerit.</p>
+                                <div class="tst-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4">
+                            <div class="item">
+                                <div class="tst-image">
+                                    <img src="landing/images/tst-image4.jpg" class="img-responsive" alt="">
+                                </div>
+                                <div class="tst-author">
+                                    <h4>Andrio</h4>
+                                    <span>Web Developer</span>
+                                </div>
+                                <p>Nam eget mi eu ante faucibus viverra nec sed magna. Vivamus viverra sapien ex,
+                                    elementum varius ex sagittis vel.</p>
+                                <div class="tst-rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+    </section>
 
 
     <!-- CONTACT -->
@@ -594,7 +586,7 @@
                         </ul>
 
                         <div class="copyright-text">
-                            <p>Copyright © 2018 Company</p>
+                            <p>Copyright &copy; 2023 Company</p>
                             <p>Design: <a rel="nofollow" href="http://templatemo.com" title="html5 templates"
                                     target="_parent">Template Mo</a></p>
                             <p>Distribution: <a href="https://themewagon.com/">ThemeWagon</a></p>
@@ -617,7 +609,7 @@
                             <ul>
                                 <li><a href="#">Career</a></li>
                                 <li><a href="#">Investor</a></li>
-                                <li><a href="#">Terms &amp; Conditions</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
                                 <li><a href="#">Refund Policy</a></li>
                             </ul>
                         </div>
@@ -649,48 +641,11 @@
 
 
     <!-- SCRIPTS -->
-     <script src="landing/js/jquery.js"></script>
-     <script src="landing/js/bootstrap.min.js"></script>
-     <script src="landing/js/owl.carousel.min.js"></script>
-     <script src="landing/js/smoothscroll.js"></script>
-     <script src="landing/js/custom.js"></script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-     <script>
-          $(document).ready(function(){
-          $(".owl-carousel").owlCarousel({
-          margin: 10,
-          loop: true,  <!-- Looping functionality -->
-          nav: true,  <!-- Adds the navigation arrows -->
-          dots: true,  <!-- Enable or disable dots navigation -->
-          responsive: {
-               0: { items: 1 },  <!-- Mobile view -->
-               600: { items: 2 },  <!-- Tablets -->
-               1000: { items: 3 }  <!-- Desktop view -->
-          }
-          });
-          });
-     </script>
-     <script>
-          const testimonialContainer = document.querySelector('.testimonial-list');
-          const scrollLeftTestimonialBtn = document.getElementById('scrollLeftTestimonial');
-          const scrollRightTestimonialBtn = document.getElementById('scrollRightTestimonial');
-      
-          scrollLeftTestimonialBtn.addEventListener('click', function() {
-              testimonialContainer.scrollBy({
-                  left: -300,  // Sesuaikan dengan lebar item
-                  behavior: 'smooth'
-              });
-          });
-      
-          scrollRightTestimonialBtn.addEventListener('click', function() {
-              testimonialContainer.scrollBy({
-                  left: 300,  // Sesuaikan dengan lebar item
-                  behavior: 'smooth'
-              });
-          });
-      </script>
+    <script src="landing/js/jquery.js"></script>
+    <script src="landing/js/bootstrap.min.js"></script>
+    <script src="landing/js/owl.carousel.min.js"></script>
+    <script src="landing/js/smoothscroll.js"></script>
+    <script src="landing/js/custom.js"></script>
 
 </body>
 
