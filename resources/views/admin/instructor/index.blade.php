@@ -46,7 +46,7 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>Email</th>
-                                        <th>Role</th>
+                                        <th>Bio</th>
                                         <th>Foto</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -61,7 +61,7 @@
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $data->name }}</td>
                                                 <td>{{ $data->email }}</td>
-                                                <td>{{ $data->role }}</td>
+                                                <td>{{ $data->bio }}</td>
                                                 <td><img width="100" height="100" src="{{ url('storage/users/' . $data->foto) }}"></td>
                                                 <td>
                                                     <a href="{{ url('edit/' . $data->id) }}">Edit</a>

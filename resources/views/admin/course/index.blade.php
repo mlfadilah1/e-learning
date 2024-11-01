@@ -14,12 +14,13 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Course</th>
+                                    <th>Instructor</th>
                                     <th>Kategori</th>
                                     <th>Judul</th>
                                     <th>Deskripsi</th>
                                     <th>URL</th>
                                     <th>Konten Type</th>
-                                    <th>URL</th>
+                                    <th>Harga</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
