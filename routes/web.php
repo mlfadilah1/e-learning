@@ -35,9 +35,31 @@ Route::middleware(['auth','Admin'])->group(function(){
     Route::get('/rating', [App\Http\Controllers\RatingController::class, 'index'])->name('rating');
     Route::get('/course', [App\Http\Controllers\CourseController::class, 'index'])->name('course');
     Route::get('/instructor', [App\Http\Controllers\InstructorController::class, 'index'])->name('instructor');
+    Route::get('/kategori', [App\Http\Controllers\KategoriController::class, 'index'])->name('kategori');
+    Route::get('/section', [App\Http\Controllers\SectionController::class, 'index'])->name('section');
+    Route::get('/content', [App\Http\Controllers\ContentController::class, 'index'])->name('content');
 
+    //Create
     Route::get('/tambahinstructor', [App\Http\Controllers\InstructorController::class, 'tambah'])->name('tambahinstructor');
+    Route::get('/tambah', [App\Http\Controllers\KategoriController::class, 'tambah'])->name('tambah');
+    Route::get('/tambahcourse', [App\Http\Controllers\CourseController::class, 'tambah'])->name('tambahcourse');
+    Route::get('/tambahsection', [App\Http\Controllers\SectionController::class, 'tambah'])->name('tambahsection');
+    Route::get('/tambahcontent', [App\Http\Controllers\ContentController::class, 'tambah'])->name('tambahcontent');
+    //Delete
     Route::get('/deleteuser/{id}', [App\Http\Controllers\InstructorController::class, 'deleteuser'])->name('deleteuser');
+    Route::get('/delete/{id}', [App\Http\Controllers\CourseController::class, 'delete'])->name('delete');
+    Route::get('/delete/{id}', [App\Http\Controllers\KategoriController::class, 'delete'])->name('delete');
+    Route::get('/delete/{id}', [App\Http\Controllers\SectionController::class, 'delete'])->name('delete');
+    Route::get('/delete/{id}', [App\Http\Controllers\ContentController::class, 'delete'])->name('delete');
+    //Submit
     Route::post('/submitinstructor', [App\Http\Controllers\InstructorController::class, 'submitinstructor'])->name('submitinstructor');
+    Route::post('/submitcourse', [App\Http\Controllers\CourseController::class, 'submit'])->name('submitcourse');
+    Route::post('/submit', [App\Http\Controllers\KategoriController::class, 'submit'])->name('submit');
+    Route::post('/submitsection', [App\Http\Controllers\SectionController::class, 'submit'])->name('submitsection');
+    Route::post('/submitcontent', [App\Http\Controllers\ContentController::class, 'submit'])->name('submitcontent');
+    //Edit
+    
+    //update
+    
 });
 
