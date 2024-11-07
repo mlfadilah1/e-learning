@@ -22,7 +22,7 @@ Route::get('/', [Controller::class, 'welcome'])->name('welcome');
 Auth::routes();
 Route::get('/logout', function () {
     Auth::logout();
-    return view('welcome');
+    return redirect()->route('welcome');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -57,6 +57,21 @@ Route::middleware(['auth','Admin'])->group(function(){
     Route::post('/submit', [App\Http\Controllers\KategoriController::class, 'submit'])->name('submit');
     Route::post('/submitsection', [App\Http\Controllers\SectionController::class, 'submit'])->name('submitsection');
     Route::post('/submitcontent', [App\Http\Controllers\ContentController::class, 'submit'])->name('submitcontent');
+    //Edit
+    
+    //update
+    
+});
+Route::middleware(['auth','Customer'])->group(function(){
+    //tampilan awal atau index
+    Route::get('/detail{id}', [App\Http\Controllers\Controller::class, 'detail'])->name('detail');
+
+    //Create
+    
+    //Delete
+    
+    //Submit
+    
     //Edit
     
     //update
