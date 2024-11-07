@@ -14,20 +14,22 @@ use App\Models\User;
 class CourseController extends Controller
 {
     public function index()
-    {
-        $data = [
-            'courses' => DB::table('courses')
-                ->join('instructors', 'courses.instructor_id', '=', 'instructors.id')
-                ->join('users', 'instructors.user_id', '=', 'users.id') // join untuk mendapatkan nama user
-                ->select(
-                    'courses.*',
-                    'users.name as instructor_name', // mengambil nama dari tabel users
-                )
-                ->get(),
-        ];
+{
+    $data = [
+        'courses' => DB::table('courses')
+            ->join('instructors', 'courses.instructor_id', '=', 'instructors.id')
+            ->join('users', 'instructors.user_id', '=', 'users.id') // join untuk mendapatkan nama user
+            ->select(
+                'courses.*',
+                'users.name as instructor_name', // mengambil nama dari tabel users
+                DB::raw("CASE WHEN courses.is_locked = 1 THEN 'Locked' WHEN courses.is_locked = 2 THEN 'Unlocked' END as lock_status")
+            )
+            ->get(),
+    ];
 
-        return view('admin.course.index', $data);
-    }
+    return view('admin.course.index', $data);
+}
+
 
     public function tambah()
     {
@@ -52,7 +54,11 @@ class CourseController extends Controller
         $price = $request->price;
         $total_price = $request->total_price;
         $is_locked = $request->is_locked; // Menangkap nilai is_locked
-
+        if ($request->hasFile('foto')) {
+            $foto = $title . '.' . $request->file('foto')->getClientOriginalExtension();
+        } else {
+            $foto = null;
+        }
         try {
             $data = [
                 'instructor_id' => $instructor_id,
@@ -61,9 +67,14 @@ class CourseController extends Controller
                 'price' => $price,
                 'total_price' => $total_price,
                 'is_locked' => $is_locked, // Menyimpan nilai is_locked
+                'foto' => $foto,
             ];
             $simpan = DB::table('courses')->insert($data);
             if ($simpan) {
+                if ($request->hasFile('foto')) {
+                    $folderPath = "public/course";
+                    $request->file('foto')->storeAs($folderPath, $foto);
+                }
                 return redirect('/course')->with('success', 'Data course berhasil disimpan.');
             }
         } catch (\Exception $e) {
