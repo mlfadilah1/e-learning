@@ -35,8 +35,8 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title fw-semibold mb-4">Section</h5>
-                <a href="{{ url('tambahcontent') }}" class="ti ti-plus">Tambah Section</a>
+                <h5 class="card-title fw-semibold mb-4">Content</h5>
+                <a href="{{ url('tambahcontent') }}" class="ti ti-plus">Tambah Content</a>
                 <div class="card">
                     <div class="card-body p-4">
                         <div class="table-responsive">

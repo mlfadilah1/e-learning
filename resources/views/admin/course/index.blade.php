@@ -18,6 +18,8 @@
                                         <th>Deskripsi</th>
                                         <th>Harga</th>
                                         <th>Total Harga</th>
+                                        <th>Status</th>
+                                        <th>Foto</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -34,6 +36,10 @@
                                                 <td>{{ Str::limit($data->description, 50) }}</td>
                                                 <td>{{ $data->price }}</td>
                                                 <td>{{ $data->total_price }}</td>
+                                                <td>{{ $data->lock_status }}</td>
+                                                <td>
+                                                    <img width="100" height="100" src="{{ url('storage/course/' . $data->foto) }}" alt="Course Image">
+                                                </td>
                                                 <td>
                                                     <a href="{{ url('edit/' . $data->id) }}">Edit</a>
                                                     <a href="{{ url('deleteuser/' . $data->id) }}" class="ti ti-trash" id="delete"></a>
