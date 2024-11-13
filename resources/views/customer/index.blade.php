@@ -22,6 +22,7 @@ http://www.templatemo.com/tm-516-known
     {{-- <link rel="stylesheet" href="landing/css/font-awesome.min.css"> --}}
     <link rel="stylesheet" href="landing/css/owl.carousel.css">
     <link rel="stylesheet" href="landing/css/owl.theme.default.min.css">
+    <link rel="shortcut icon" type="image/png" href="admin/images/logos/IdeaThings.png" />
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="landing/css/templatemo-style.css">

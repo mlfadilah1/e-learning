@@ -92,6 +92,14 @@
                             <span class="hide-menu">Rating / Ulasan</span>
                         </a>
                     </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="coupon" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-star"></i>
+                            </span>
+                            <span class="hide-menu">Coupon Diskon</span>
+                        </a>
+                    </li>
                     {{-- <li class="sidebar-item">
                         <a class="sidebar-link" href="kategori" aria-expanded="false">
                             <span>

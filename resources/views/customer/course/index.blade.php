@@ -20,13 +20,12 @@
                 <div class="course-info p-3 bg-white rounded shadow-sm">
                     <p><strong>Instructor:</strong> {{ $course->instructor->user->name ?? 'N/A' }}</p>
                     <p><strong>Price:</strong> {{ $course->price > 0 ? 'Rp. ' . number_format($course->price, 0, ',', '.') : 'Free' }}</p>
-                    {{-- <p><strong>Total Duration:</strong> {{ $course->contents->sum('duration') }} Minutes</p> --}}
 
                     <!-- Tombol Beli Sekarang atau Claim Sekarang -->
                     @if ($course->price > 0)
-                        <a href="{{ route('course', ['id' => $course->id]) }}" class="btn btn-primary mt-3">Beli Sekarang</a>
+                        <a href="{{ route('pembayaran', ['id' => $course->id]) }}" class="btn btn-primary mt-3">Beli Sekarang</a>
                     @else
-                        <a href="{{ route('course', ['id' => $course->id]) }}" class="btn btn-success mt-3">Claim Sekarang</a>
+                        <a href="{{ route('courses.course', ['id' => $course->id]) }}" class="btn btn-success mt-3">Claim Sekarang</a>
                     @endif
                 </div>
             </div>

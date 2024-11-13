@@ -32,20 +32,22 @@
             @endguest
 
             @auth
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="d-sm-none d-lg-inline-block">{{ Auth::user()->name }}</div>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end bg-light">
-                            <li><a href="profile" class="dropdown-item has-icon"><i class="fa fa-user"></i> Profile</a></li>
-                            <li><a href="progress" class="dropdown-item has-icon"><i class="fa fa-chart-line"></i>
-                                    Progress</a></li>
-                            <li><a href="{{ url('logout') }}" class="dropdown-item has-icon text-danger"><i
-                                        class="fa fa-sign-out-alt"></i> Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <!-- Menambahkan foto di samping nama -->
+                        <div class="d-flex align-items-center">
+                            
+                            <div class="d-sm-none d-lg-inline-block"><img alt="image" src="{{ url('storage/users/'.Auth::user()->foto) }}" class="rounded-circle mr-2" style="width: 30px; height: 30px; object-fit: cover;">  {{ Auth::user()->name }}</div>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end bg-light">
+                        <li><a href="profileuser" class="dropdown-item has-icon"><i class="fa fa-user"></i> Profile</a></li>
+                        <li><a href="progress" class="dropdown-item has-icon"><i class="fa fa-chart-line"></i> Progress</a></li>
+                        <li><a href="{{ url('logout') }}" class="dropdown-item has-icon text-danger"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>            
             @endauth
 
 
