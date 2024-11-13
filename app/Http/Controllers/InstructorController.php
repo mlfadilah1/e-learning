@@ -98,4 +98,9 @@ class InstructorController extends Controller
             return redirect()->back()->withInput()->withErrors(['error' => 'Gagal menambahkan instructor: ' . $e->getMessage()]);
         }
     }
+    public function delete($id)
+    {
+        DB::table('courses')->where('id', $id)->delete();
+        return redirect('/course')->with('success', 'Data courses berhasil dihapus.');
+    }
 }
