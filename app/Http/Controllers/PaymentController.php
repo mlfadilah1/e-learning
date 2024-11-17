@@ -18,32 +18,39 @@ class PaymentController extends Controller
 
     public function submit(Request $request, $id)
     {
-        // Validate the payment method
+        // Validasi metode pembayaran
         $request->validate([
             'payment_method' => 'required',
         ]);
 
-        // Retrieve the course based on the ID
+        // Ambil kursus berdasarkan ID
         $course = Course::findOrFail($id);
         $discountAmount = 0;
         $couponId = null;
+        $udemyCoupon = 0;
 
-        // Check if a coupon code is provided
-        if ($request->filled('cupon_code')) {
-            $coupon = cupon::where('code', $request->coupon_code)->first();
+        // Periksa apakah kupon disertakan
+        if ($request->filled('coupon_id')) {
+            $coupon = Cupon::find($request->id);
 
-            // Apply the coupon if it's valid
+            // Terapkan kupon jika ada
             if ($coupon) {
-                $discountAmount = $coupon->discount_amount;  // Get the discount amount
-                $couponId = $coupon->id;  // Store the coupon ID
+                $couponId = $coupon->id;
                 $udemyCoupon = 1;
+
+                // Hitung diskon berdasarkan tipe
+                if ($coupon->discount_type === 'percentage') {
+                    $discountAmount = ($course->price * $coupon->discount_value) / 100;
+                } else if ($coupon->discount_type === 'nominal') {
+                    $discountAmount = $coupon->discount_value;
+                }
             }
         }
 
-        // Calculate the total price after applying any discounts
-        $totalPrice = $course->price - $discountAmount;
+        // Hitung harga total setelah diskon
+        $totalPrice = max($course->price - $discountAmount, 0);
 
-        // Save the enrollment data
+        // Simpan data pendaftaran
         $enrollment = Enrollments::create([
             'user_id' => auth()->id(),
             'course_id' => $course->id,
@@ -51,24 +58,23 @@ class PaymentController extends Controller
             'enrollment_date' => now(),
             'discount_amount' => $discountAmount,
             'total_price' => $totalPrice,
-            'udemy_coupon' => $udemyCoupon, // 'udemy_coupon' => $coupon ? 1 : 0,  // Set to 1 if a coupon is used
+            'udemy_coupon' => $udemyCoupon,
         ]);
 
-        // Here you can process the payment through a gateway
-        // In this example, we assume the payment is successful
+        // Proses pembayaran (simulasikan berhasil untuk sekarang)
         $paymentSuccess = true;
 
         if ($paymentSuccess) {
-            // Update the course status to unlocked
+            // Update status kursus menjadi tidak terkunci
             $course->is_locked = 0;
             $course->save();
 
-            // Redirect back to the course page with a success message
-            return redirect()->route('course.show', ['id' => $course->id])
+            // Redirect kembali ke halaman kursus dengan pesan sukses
+            return redirect()->route('detail', ['id' => $course->id])
                 ->with('success', 'Pembayaran berhasil, akses materi telah dibuka.');
         }
 
-        // If payment failed, redirect back with an error message
+        // Jika pembayaran gagal, redirect kembali dengan pesan error
         return back()->with('error', 'Pembayaran gagal, silakan coba lagi.');
     }
 }

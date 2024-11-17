@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\course;
+use App\Models\Enrollments;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -26,8 +27,16 @@ class Controller extends BaseController
     //detail course
     public function detail($id)
     {
-        // Controller
-        $course = Course::with(['contents.category', 'instructor.user', 'contents.section',])->find($id);
-        return view('customer.course.index', compact('course'));
+        $course = Course::with(['contents.category', 'instructor.user', 'contents.section'])->findOrFail($id);
+
+        // Cek apakah user telah mendaftar pada course ini
+        $enrollment = Enrollments::where('user_id', auth()->id())
+            ->where('course_id', $course->id)
+            ->first();
+
+        // Status apakah course ini terkunci untuk user yang belum membeli
+        $isLocked = !$enrollment;
+
+        return view('customer.course.index', compact('course', 'isLocked'));
     }
 }
