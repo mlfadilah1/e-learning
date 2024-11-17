@@ -21,11 +21,13 @@
                     <p><strong>Instructor:</strong> {{ $course->instructor->user->name ?? 'N/A' }}</p>
                     <p><strong>Price:</strong> {{ $course->price > 0 ? 'Rp. ' . number_format($course->price, 0, ',', '.') : 'Free' }}</p>
 
-                    <!-- Tombol Beli Sekarang atau Claim Sekarang -->
-                    @if ($course->price > 0)
-                        <a href="{{ route('pembayaran', ['id' => $course->id]) }}" class="btn btn-primary mt-3">Beli Sekarang</a>
-                    @else
-                        <a href="{{ route('courses.course', ['id' => $course->id]) }}" class="btn btn-success mt-3">Claim Sekarang</a>
+                    <!-- Tombol Beli Sekarang atau Claim Sekarang hanya ditampilkan jika course terkunci (belum dibayar) -->
+                    @if ($isLocked)
+                        @if ($course->price > 0)
+                            <a href="{{ route('pembayaran', ['id' => $course->id]) }}" class="btn btn-primary mt-3">Beli Sekarang</a>
+                        @else
+                            <a href="{{ route('courses.course', ['id' => $course->id]) }}" class="btn btn-success mt-3">Claim Sekarang</a>
+                        @endif
                     @endif
                 </div>
             </div>
@@ -42,14 +44,14 @@
                                 @foreach ($contents as $index => $content)
                                     <div class="list-group-item">
                                         <div class="d-flex w-100 justify-content-between">
-                                            @if ($course->is_locked == 1 && $index > 0)
-                                                <!-- Materi terkunci -->
+                                            @if ($isLocked && $index > 0)
+                                                <!-- Materi terkunci untuk pengguna yang belum membeli -->
                                                 <h5 class="mb-1 text-muted">
                                                     <i class="fa fa-lock"></i> {{ $content->title }}
                                                 </h5>
                                                 <small class="text-muted">Locked</small>
                                             @else
-                                                <!-- Materi terbuka -->
+                                                <!-- Materi terbuka untuk pengguna yang telah membeli -->
                                                 <h5 class="mb-1">
                                                     <a href="{{ $content->url }}" target="_blank" class="text-decoration-none">
                                                         {{ $content->title }}

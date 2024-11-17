@@ -14,9 +14,9 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="coupon_code" class="form-label">Kode Kupon</label>
-                        <input type="text" class="form-control" id="coupon_code" name="coupon_code" value="{{ old('coupon_code') }}" required>
-                        @error('coupon_code')
+                        <label for="cupon_code" class="form-label">Kode Kupon</label>
+                        <input type="text" class="form-control" id="cupon_code" name="cupon_code" value="{{ old('cupon_code') }}" required>
+                        @error('cupon_code')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>

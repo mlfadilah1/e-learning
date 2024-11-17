@@ -32,17 +32,33 @@
                                             <td>{{ $coupon->cupon_code }}</td>
                                             <td>{{ $coupon->description }}</td>
                                             <td>{{ ucfirst($coupon->discount_type) }}</td>
-                                            <td>{{ $coupon->discount_value }}</td>
+                                            <td>{{ $coupon->discount_value }}%</td>
                                             <td>{{ $coupon->valid_form->format('d-m-Y') }}</td>
                                             <td>{{ $coupon->valid_until->format('d-m-Y') }}</td>
                                             <td>{{ $coupon->usage_limit }}</td>
                                             <td>{{ $coupon->total_usage }}</td>
-                                            <td>
-                                                <form action="{{ route('deletecoupon', $coupon->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Hapus</button>
-                                                </form>
+                                            <td class="text-center">
+                                                <!-- Dropdown untuk Edit dan Hapus -->
+                                                <div class="dropdown">
+                                                    <button class="btn btn-light ti ti-dots-vertical" type="button"
+                                                        id="menuOptions" data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="border: none; background: none;">
+                                                        <i class="ti ti-more" style="font-size: 1.5rem;"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu" aria-labelledby="menuOptions">
+                                                        <li>
+                                                            <a href="{{ url('editcoupon' . $coupon->id) }}"
+                                                                class="dropdown-item">
+                                                                <i class="ti ti-pencil"></i> Edit
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="{{ url('deletecoupon/' . $coupon->id) }}"
+                                                                class="dropdown-item"><i class="ti ti-trash"></i>Delete
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
