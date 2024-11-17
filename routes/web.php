@@ -78,7 +78,7 @@ Route::middleware(['auth','Admin'])->group(function(){
     Route::put('/updatecontent{id}', [App\Http\Controllers\ContentController::class, 'update'])->name('updatecontent');
     Route::put('/updatekategori{id}', [App\Http\Controllers\KategoriController::class, 'update'])->name('updatekategori');
     Route::put('/updateprofile', [App\Http\Controllers\ProfileController::class, 'update'])->name('updateprofile');
-    Route::put('/updatecoupon', [App\Http\Controllers\CouponController::class, 'update'])->name('updatecoupon');
+    Route::put('/updatecoupon{id}', [App\Http\Controllers\CouponController::class, 'update'])->name('updatecoupon');
     
 });
 Route::middleware(['auth','Customer'])->group(function(){
