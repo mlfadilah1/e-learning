@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\course;
+use App\Models\Enrollments;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Instructor;
+use Illuminate\Support\Facades\Auth;
 
 class InstructorController extends Controller
 {
@@ -103,4 +106,5 @@ class InstructorController extends Controller
         DB::table('courses')->where('id', $id)->delete();
         return redirect('/course')->with('success', 'Data courses berhasil dihapus.');
     }
+    
 }
