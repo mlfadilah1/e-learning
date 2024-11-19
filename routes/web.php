@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
+use App\Http\Middleware\Instructor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,11 +28,11 @@ Route::get('/logout', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
-Route::middleware(['auth','Admin'])->group(function(){
+Route::middleware(['auth','Admin', 'Instructor'])->group(function(){
     //tampilan awal atau index
     Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'admin'])->name('dashboard');
     Route::get('/user', [App\Http\Controllers\UserController::class, 'index'])->name('user');
-    Route::get('/payment', [App\Http\Controllers\PaymentController::class, 'index'])->name('payment');
+    Route::get('/payment', [App\Http\Controllers\PaymentController::class, 'payment'])->name('payment');
     Route::get('/rating', [App\Http\Controllers\RatingController::class, 'index'])->name('rating');
     Route::get('/course', [App\Http\Controllers\CourseController::class, 'index'])->name('course');
     Route::get('/instructor', [App\Http\Controllers\InstructorController::class, 'index'])->name('instructor');
@@ -40,7 +41,6 @@ Route::middleware(['auth','Admin'])->group(function(){
     Route::get('/content', [App\Http\Controllers\ContentController::class, 'index'])->name('content');
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'profile'])->name('profile');
     Route::get('/coupon', [App\Http\Controllers\CouponController::class, 'index'])->name('coupon');
-    
 
     //Create
     Route::get('/tambahinstructor', [App\Http\Controllers\InstructorController::class, 'tambah'])->name('tambahinstructor');
@@ -80,6 +80,11 @@ Route::middleware(['auth','Admin'])->group(function(){
     Route::put('/updateprofile', [App\Http\Controllers\ProfileController::class, 'update'])->name('updateprofile');
     Route::put('/updatecoupon{id}', [App\Http\Controllers\CouponController::class, 'update'])->name('updatecoupon');
     
+});
+Route::middleware(['auth','Instructor'])->group(function(){
+    Route::get('/courses', [App\Http\Controllers\CoursesController::class, 'mycourses'])->name('courses');
+    Route::get('/students{course}', [App\Http\Controllers\CoursesController::class, 'courseStudents'])->name('students');
+
 });
 Route::middleware(['auth','Customer'])->group(function(){
     //tampilan awal atau index
