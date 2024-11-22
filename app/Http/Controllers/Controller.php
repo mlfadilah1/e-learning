@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\course;
+use App\Models\discuss;
+use App\Models\discuss_comment;
 use App\Models\Enrollments;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class Controller extends BaseController
 {
@@ -27,7 +30,7 @@ class Controller extends BaseController
     //detail course
     public function detail($id)
     {
-        $course = Course::with(['contents.category', 'instructor.user', 'contents.section'])->findOrFail($id);
+        $course = Course::with(['contents.category', 'instructor.user', 'contents.section', 'discuss.user'])->findOrFail($id);
 
         // Cek apakah user telah mendaftar pada course ini
         $enrollment = Enrollments::where('user_id', auth()->id())
@@ -38,5 +41,40 @@ class Controller extends BaseController
         $isLocked = !$enrollment;
 
         return view('customer.course.index', compact('course', 'isLocked'));
+    }
+
+    //discuss
+    public function storeDiscuss(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'content' => 'required|max:500',
+        ]);
+
+        // Simpan komentar ke database
+        Discuss::create([
+            'user_id' => auth()->id(),
+            'course_id' => $id,
+            'content' => $request->content,
+        ]);
+
+        // Kembali ke halaman yang sama dengan pesan sukses
+        return redirect()->route('detail', ['id' => $id])->with('success', 'Komentar berhasil ditambahkan!');
+    }
+    public function storeComment(Request $request, $discussId)
+    {
+        // Validasi input
+        $request->validate([
+            'content' => 'required|max:500',
+        ]);
+
+        // Simpan komentar ke database
+        discuss_comment::create([
+            'user_id' => auth()->id(),
+            'discuss_id' => $discussId,
+            'content' => $request->content,
+        ]);
+
+        return redirect()->back()->with('success', 'Komentar berhasil ditambahkan!');
     }
 }
