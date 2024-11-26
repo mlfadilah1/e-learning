@@ -97,6 +97,8 @@ Route::middleware(['auth','Customer'])->group(function(){
     
     //Submit
     Route::post('/submitpayment{id}', [App\Http\Controllers\PaymentController::class, 'submit'])->name('submitpayment');
+    Route::post('/discuss{id}', [App\Http\Controllers\Controller::class, 'storeDiscuss'])->name('discuss');
+    Route::post('/comment{DiscussId}', [App\Http\Controllers\Controller::class, 'storeComment'])->name('comment');
     //Edit
     Route::get('/profileuser', [App\Http\Controllers\ProfileController::class, 'user'])->name('profileuser');
     //update
