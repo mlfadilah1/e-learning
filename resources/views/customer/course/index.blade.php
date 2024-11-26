@@ -97,10 +97,8 @@
                                 <p class="text-muted">Belum ada diskusi. Jadilah yang pertama berkomentar!</p>
                             @endforelse
                         </div>
-                        
                     </div>
                 </div>
-
                 <!-- Kolom Kanan: Konten Kursus -->
                 <div class="col-md-4">
                     <div class="course-contents p-4 bg-light rounded shadow-sm">
