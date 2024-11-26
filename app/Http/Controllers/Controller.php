@@ -32,6 +32,8 @@ class Controller extends BaseController
     {
         $course = Course::with(['contents.category', 'instructor.user', 'contents.section', 'discuss.user'])->findOrFail($id);
 
+        $discussComments = Discuss::where('course_id', $id)->get();
+
         // Cek apakah user telah mendaftar pada course ini
         $enrollment = Enrollments::where('user_id', auth()->id())
             ->where('course_id', $course->id)
@@ -40,7 +42,7 @@ class Controller extends BaseController
         // Status apakah course ini terkunci untuk user yang belum membeli
         $isLocked = !$enrollment;
 
-        return view('customer.course.index', compact('course', 'isLocked'));
+        return view('customer.course.index', compact('course', 'isLocked', 'discussComments'));
     }
 
     //discuss
@@ -61,7 +63,7 @@ class Controller extends BaseController
         // Kembali ke halaman yang sama dengan pesan sukses
         return redirect()->route('detail', ['id' => $id])->with('success', 'Komentar berhasil ditambahkan!');
     }
-    public function storeComment(Request $request, $discussId)
+    public function storeComment(Request $request, $DiscussId)
     {
         // Validasi input
         $request->validate([
@@ -71,10 +73,17 @@ class Controller extends BaseController
         // Simpan komentar ke database
         discuss_comment::create([
             'user_id' => auth()->id(),
-            'discuss_id' => $discussId,
+            'discuss_id' => $DiscussId,
             'content' => $request->content,
         ]);
 
         return redirect()->back()->with('success', 'Komentar berhasil ditambahkan!');
+    }
+    public function show($id)
+    {
+        $course = Course::with(['discuss', 'contents.section', 'contents.category', 'instructor.user'])->findOrFail($id);
+        $discussComments = Discuss::where('course_id', $id)->get();
+
+        return view('detail', compact('course', 'discussComments'));
     }
 }
