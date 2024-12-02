@@ -101,10 +101,65 @@ class InstructorController extends Controller
             return redirect()->back()->withInput()->withErrors(['error' => 'Gagal menambahkan instructor: ' . $e->getMessage()]);
         }
     }
+    public function edit($id)
+    {
+        $instructor = Instructor::with('user')->findOrFail($id);
+
+        return view('admin.instructor.edit', compact('instructor'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $id . ',id',
+            'password' => 'nullable|min:6',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'bio' => 'required',
+        ]);
+
+        $instructor = Instructor::findOrFail($id);
+        $user = $instructor->user;
+
+        if ($request->hasFile('foto')) {
+            $foto = $request->name . '.' . $request->file('foto')->getClientOriginalExtension();
+        } else {
+            $foto = $user->foto;
+        }
+
+        try {
+            DB::transaction(function () use ($request, $instructor, $user, $foto) {
+                // Update data user
+                $user->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'password' => $request->password ? bcrypt($request->password) : $user->password,
+                    'foto' => $foto,
+                    'updated_at' => now(),
+                ]);
+
+                // Update data instructor
+                $instructor->update([
+                    'bio' => $request->bio,
+                    'updated_at' => now(),
+                ]);
+
+                // Simpan foto jika ada
+                if ($request->hasFile('foto')) {
+                    $folderPath = "public/users/";
+                    $request->file('foto')->storeAs($folderPath, $foto);
+                }
+            });
+
+            return redirect()->route('instructor')->with('success', 'Instructor berhasil diperbarui.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->withErrors(['error' => 'Gagal memperbarui instructor: ' . $e->getMessage()]);
+        }
+    }
+
     public function delete($id)
     {
         DB::table('courses')->where('id', $id)->delete();
         return redirect('/course')->with('success', 'Data courses berhasil dihapus.');
     }
-    
 }

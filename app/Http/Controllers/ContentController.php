@@ -41,47 +41,45 @@ class ContentController extends Controller
     {
         // Validasi input dari user
         $request->validate([
-            'coupon_code' => 'required|string|max:255|unique:cupons,coupon_code', // Memastikan kode kupon unik
-            'description' => 'required|string|max:500',
-            'discount_type' => 'required|in:percentage,flat',
-            'discount_value' => 'required|numeric|min:0',
-            'valid_form' => 'required|date',
-            'valid_until' => 'required|date|after:valid_form',
-            'usage_limit' => 'required|integer|min:1',
-            'total_usage' => 'required|integer|min:0',
+            'judul' => 'required|exists:courses,id',
+            'kategori' => 'required|exists:course_categories,id',
+            'section' => 'required|exists:course_sections,id',
+            'title' => 'required|string|max:255',
+            'url' => 'required|url',
+            'durasi' => 'required|integer|min:1',
         ]);
 
         try {
             // Data yang akan disimpan ke database
             $data = [
-                'coupon_code' => $request->coupon_code,
-                'description' => $request->description,
-                'discount_type' => $request->discount_type,
-                'discount_value' => $request->discount_value,
-                'valid_form' => $request->valid_form,
-                'valid_until' => $request->valid_until,
-                'usage_limit' => $request->usage_limit,
-                'total_usage' => $request->total_usage,
+                'course_id' => $request->judul,
+                'course_category_id' => $request->kategori,
+                'section_id' => $request->section,
+                'title' => $request->title,
+                'url' => $request->url,
+                'duration' => $request->durasi,
+                'created_at' => now(),
+                'updated_at' => now(),
             ];
 
-            // Menyimpan data kupon baru ke tabel 'cupons'
-            $simpan = DB::table('cupons')->insert($data);
+            // Menyimpan data konten baru ke tabel 'contents'
+            DB::table('course_contents')->insert($data);
 
-            // Cek jika data berhasil disimpan
-            if ($simpan) {
-                return redirect()->route('coupon')->with('success', 'Kupon berhasil ditambahkan.');
-            }
+            // Redirect ke halaman content jika berhasil
+            return redirect()->route('content')->with('success', 'Konten berhasil ditambahkan.');
         } catch (\Exception $e) {
             // Jika terjadi kesalahan saat menyimpan, tampilkan pesan error
-            return redirect()->route('tambahcoupon')->with('danger', 'Data gagal disimpan: ' . $e->getMessage());
+            return redirect()->route('tambahcontent')->with('danger', 'Data gagal disimpan: ' . $e->getMessage());
         }
     }
+
 
     public function delete($id)
     {
         DB::table('course_contents')->where('id', $id)->delete();
         return redirect('/content')->with('success', 'Data courses berhasil dihapus.');
     }
+    
     public function edit($id)
     {
         // Ambil data content berdasarkan id
