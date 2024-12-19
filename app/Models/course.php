@@ -40,4 +40,8 @@ class course extends Model
     {
         return $this->hasMany(Discuss::class);
     }
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'course_id');
+    }
 }

@@ -25,5 +25,8 @@ class instructor extends Model
     {
         return $this->belongsTo(Instructor::class, 'instructor_id');
     }
-    
+    public function reviews()
+    {
+        return $this->hasMany(Review::class, 'instructor_id');
+    }
 }
